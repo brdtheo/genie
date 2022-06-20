@@ -23,7 +23,7 @@ function MainLayout() {
           Home
         </RouterLink>
         <RouterLink to={L.News.news()} mode={CLEAR} exact>
-          News
+          Search
         </RouterLink>
       </div>
     </div>
