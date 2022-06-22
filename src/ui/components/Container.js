@@ -1,5 +1,11 @@
 import React from "react";
 
 export default function Container(props) {
-  return <div className="w-[56rem] m-auto py-6">{props.children}</div>;
+  const { customStyle } = props;
+
+  return (
+    <div className={`w-[56rem] m-auto ${customStyle ? customStyle : ""}`}>
+      {props.children}
+    </div>
+  );
 }
