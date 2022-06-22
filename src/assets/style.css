@@ -352,8 +352,14 @@ q::before, q::after {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.fixed{
+  position: fixed;
+}
 .absolute{
   position: absolute;
+}
+.relative{
+  position: relative;
 }
 .top-0{
   top: 0px;
@@ -373,11 +379,26 @@ q::before, q::after {
 .mt-6{
   margin-top: 1.5rem;
 }
+.ml-4{
+  margin-left: 1rem;
+}
 .mb-2{
   margin-bottom: 0.5rem;
 }
+.ml-2{
+  margin-left: 0.5rem;
+}
+.ml-1{
+  margin-left: 0.25rem;
+}
+.mr-1{
+  margin-right: 0.25rem;
+}
 .flex{
   display: flex;
+}
+.grid{
+  display: grid;
 }
 .h-screen{
   height: 100vh;
@@ -391,8 +412,23 @@ q::before, q::after {
 .h-0{
   height: 0px;
 }
+.h-7{
+  height: 1.75rem;
+}
 .h-16{
   height: 4rem;
+}
+.h-20{
+  height: 5rem;
+}
+.h-full{
+  height: 100%;
+}
+.h-6{
+  height: 1.5rem;
+}
+.h-5{
+  height: 1.25rem;
 }
 .min-h-screen{
   min-height: 100vh;
@@ -400,11 +436,23 @@ q::before, q::after {
 .w-\[56rem\]{
   width: 56rem;
 }
+.w-full{
+  width: 100%;
+}
 .w-10{
   width: 2.5rem;
 }
 .w-16{
   width: 4rem;
+}
+.w-20{
+  width: 5rem;
+}
+.w-56{
+  width: 14rem;
+}
+.w-72{
+  width: 18rem;
 }
 .w-80{
   width: 20rem;
@@ -414,6 +462,14 @@ q::before, q::after {
 }
 .flex-grow{
   flex-grow: 1;
+}
+@keyframes pulse{
+  50%{
+    opacity: .5;
+  }
+}
+.animate-pulse{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .flex-col{
   flex-direction: column;
@@ -452,9 +508,11 @@ q::before, q::after {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.bg-opacity-5{
+  --tw-bg-opacity: 0.05;
+}
+.bg-opacity-20{
+  --tw-bg-opacity: 0.2;
 }
 .px-2{
   padding-left: 0.5rem;
@@ -472,35 +530,55 @@ q::before, q::after {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.pb-16{
+  padding-bottom: 4rem;
+}
+.pt-28{
+  padding-top: 7rem;
+}
+.align-bottom{
+  vertical-align: bottom;
+}
 .text-xl{
   font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-lg{
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
 }
-.text-lg{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .font-semibold{
   font-weight: 600;
 }
 .font-bold{
   font-weight: 700;
+}
+.font-medium{
+  font-weight: 500;
 }
 .leading-none{
   line-height: 1;
@@ -513,8 +591,20 @@ q::before, q::after {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-lemon{
+  --tw-text-opacity: 1;
+  color: rgb(255 253 100 / var(--tw-text-opacity));
+}
+.text-opacity-60{
+  --tw-text-opacity: 0.6;
+}
 .transition-all{
   transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-colors{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -528,6 +618,10 @@ q::before, q::after {
 }
 .ease-in{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.hover\:bg-opacity-10:hover{
+  --tw-bg-opacity: 0.1;
 }
 
 .focus\:outline-none:focus{

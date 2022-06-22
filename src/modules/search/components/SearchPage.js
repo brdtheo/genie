@@ -1,45 +1,24 @@
 import React from "react";
 
-import { RouterLink } from "../../../lib/redux-saga-router";
-import SearchBar from "../../../ui/components/SearchBar";
-import * as L from "../../../locationTemplates";
-import { IoLogoFacebook, IoLogoInstagram, IoLogoTwitter, IoLogoYoutube } from "react-icons/io5";
+import Section from "../../../ui/components/Section";
+import Header from "../../../ui/components/Header";
+import SearchCardList from "../../../ui/components/SearchCardList";
+import Container from "../../../ui/components/Container";
 
 function SearchPage() {
   return (
     <>
-      <header className="h-10 flex justify-between items-center">
-        <RouterLink to={L.Home.home()}>
-          <h1 className="text-2xl font-bold leading-none text-white">Genie</h1>
-        </RouterLink>
+      <Header />
 
-        <ul className="flex justify-center items-center flex-1 text-lg gap-6 text-white">
-          <li>
-            <a href="https://www.instagram.com/genius/">
-              <IoLogoInstagram />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/genius">
-              <IoLogoYoutube />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/Genius/">
-              <IoLogoFacebook />
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/Genius">
-              <IoLogoTwitter />
-            </a>
-          </li>
-        </ul>
+      <Container>
+        <Section title="Songs" customStyle="pt-28 pb-16">
+          <SearchCardList type="song" />
+        </Section>
 
-        <div>
-          <SearchBar small />
-        </div>
-      </header>
+        <Section title="Artists">
+          <SearchCardList type="artist" />
+        </Section>
+      </Container>
     </>
   );
 }
