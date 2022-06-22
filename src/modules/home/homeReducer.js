@@ -1,6 +1,10 @@
 export const initialHomeState = {
   loading: false,
   queryResult: null,
+  queryInput: {
+    value: "",
+    error: "",
+  },
 };
 
 const homeReducer = (previousState = initialHomeState, action) => {
@@ -14,6 +18,22 @@ const homeReducer = (previousState = initialHomeState, action) => {
       return {
         ...previousState,
         queryResult: action.payload,
+      };
+    case "SET_QUERY_INPUT_VALUE":
+      return {
+        ...previousState,
+        queryInput: {
+          value: action.payload,
+          error: "",
+        },
+      };
+    case "SET_QUERY_INPUT_ERROR":
+      return {
+        ...previousState,
+        queryInput: {
+          value: previousState.queryInput.value,
+          error: action.payload,
+        },
       };
     default:
       return previousState;
