@@ -24,7 +24,7 @@ export default function SearchCard(props) {
         <>
           {type === "song" ? (
             <article className="text-white w-full h-20 flex bg-white bg-opacity-5 hover:bg-opacity-10 transition-colors">
-              <figure className="w-20 h-20">
+              <figure className="w-20 h-20 overflow-hidden">
                 <img
                   src={item.result.song_art_image_thumbnail_url}
                   alt={`${item.result.title} by ${item.result.artist_names}`}
@@ -50,8 +50,12 @@ export default function SearchCard(props) {
             </article>
           ) : (
             <article className="text-white w-full h-20 flex bg-white bg-opacity-5 hover:bg-opacity-10 transition-colors">
-              <figure className="w-20 h-20">
-                <img src={artistImage} alt={artistName} className="w-full h-full" />
+              <figure className="w-20 h-20 overflow-hidden">
+                <img
+                  src={artistImage}
+                  alt={artistName}
+                  className="w-full h-full"
+                />
               </figure>
 
               <div className="ml-4 py-2 flex-1">
