@@ -19,7 +19,7 @@ export default function SearchCardList(props) {
   }, [queryResult, isTypeArtist]);
 
   return (
-    <div className="py-6 grid gap-4">
+    <div className="py-5 md:py-6 grid gap-3 md:gap-4">
       {!isTypeArtist &&
         queryResult.map((item) => (
           <SearchCard item={item} key={item.result.api_path} type={type} />
