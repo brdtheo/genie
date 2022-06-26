@@ -34,5 +34,11 @@ export const parseArtists = (songs) => {
 };
 
 export const parseViews = (views) => {
-  return numeral(views).format("0.0a").toUpperCase();
+  if (!views) {
+    return 0;
+  } else if (views < 1000) {
+    return views;
+  } else {
+    return numeral(views).format("0.0a").toUpperCase();
+  }
 };

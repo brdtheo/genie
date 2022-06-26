@@ -412,9 +412,6 @@ input[type="search"] {
 .grid{
   display: grid;
 }
-.h-screen{
-  height: 100vh;
-}
 .h-10{
   height: 2.5rem;
 }
@@ -471,9 +468,6 @@ input[type="search"] {
 }
 .w-80{
   width: 20rem;
-}
-.w-12{
-  width: 3rem;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -682,9 +676,6 @@ input[type="search"] {
   .md\:w-full{
     width: 100%;
   }
-  .md\:w-80{
-    width: 20rem;
-  }
   .md\:w-96{
     width: 24rem;
   }
@@ -706,6 +697,10 @@ input[type="search"] {
   .md\:pt-28{
     padding-top: 7rem;
   }
+  .md\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
   .md\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
@@ -721,10 +716,6 @@ input[type="search"] {
   .md\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-  .md\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 
