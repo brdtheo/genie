@@ -11,7 +11,7 @@ function SearchPage() {
       <Header />
 
       <Container>
-        <Section title="Songs" customStyle="pt-28 pb-16">
+        <Section title="Songs" customStyle="pt-20 md:pt-28 pb-8 sm:pb-16">
           <SearchCardList type="song" />
         </Section>
 

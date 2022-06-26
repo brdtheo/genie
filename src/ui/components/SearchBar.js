@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 });
 
 export default function SearchBar(props) {
-  const { small } = props;
+  const { small, customStyle } = props;
   const queryInput = useSelector((state) => state.homeReducer.queryInput);
   const dispatch = useDispatch();
 
@@ -61,38 +61,43 @@ export default function SearchBar(props) {
   };
 
   return (
-    <form onSubmit={handleSubmitForm} className="relative">
+    <form
+      onSubmit={handleSubmitForm}
+      className={`relative ${customStyle ? customStyle : ""}`}
+    >
       {small ? (
         <div className="flex h-7">
           <input
             placeholder="Search lyrics &amp; more"
             type="search"
-            className="border-white px-2 focus:outline-none text-sm"
+            className={`border-white bg-lemon md:bg-white px-2 focus:outline-none text-base md:text-sm  ${
+              customStyle ? customStyle : ""
+            }`}
             value={queryInput.value}
             onChange={handleOnChange}
             onKeyPress={handleKeyPress}
           />
-          <button className="bg-white w-10 text-black flex justify-center items-center text-xl">
+          <button className="bg-lemon md:bg-white w-10 text-black flex justify-center items-center text-xl">
             <IoSearchSharp />
           </button>
         </div>
       ) : (
-        <div className="flex h-16 mt-6">
+        <div className="flex h-14 md:h-16 mt-6">
           <input
             placeholder="Search lyrics &amp; more"
             type="search"
-            className="border-white border-4 py-2 px-4 focus:outline-none"
+            className="border-white bg-white border-4 py-2 px-4 focus:outline-none text-base w-full"
             value={queryInput.value}
             onChange={handleOnChange}
             onKeyPress={handleKeyPress}
           />
-          <button className="bg-white w-16 text-black flex justify-center items-center text-2xl">
+          <button className="bg-white w-16 text-black flex justify-center items-center text-xl md:text-2xl">
             <IoSearchSharp />
           </button>
         </div>
       )}
       {queryInput.error && (
-        <div className="bg-lemon px-4 py-1 text-sm absolute left-0 w-full">
+        <div className="bg-lemon px-4 py-1 text-xs md:text-sm absolute left-0 w-full">
           <span>{queryInput.error}</span>
         </div>
       )}

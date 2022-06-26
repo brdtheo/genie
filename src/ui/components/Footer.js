@@ -9,7 +9,7 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-lemon text-black font-semibold h-10 flex">
-      <ul className="flex justify-center items-center flex-1 text-xl gap-4">
+      <ul className="flex justify-center items-center flex-1 md:text-xl gap-4">
         <li>
           <a href="https://www.instagram.com/genius/">
             <IoLogoInstagram />
