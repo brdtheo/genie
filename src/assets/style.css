@@ -403,6 +403,9 @@ input[type="search"] {
 .ml-1{
   margin-left: 0.25rem;
 }
+.mt-4{
+  margin-top: 1rem;
+}
 .block{
   display: block;
 }
@@ -438,6 +441,9 @@ input[type="search"] {
 }
 .h-5{
   height: 1.25rem;
+}
+.h-screen{
+  height: 100vh;
 }
 .min-h-screen{
   min-height: 100vh;
