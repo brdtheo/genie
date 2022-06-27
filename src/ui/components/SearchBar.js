@@ -21,6 +21,7 @@ const schema = yup.object().shape({
 export default function SearchBar(props) {
   const { small, customStyle } = props;
   const queryInput = useSelector((state) => state.homeReducer.queryInput);
+  const loading = useSelector((state) => state.homeReducer.loading);
   const dispatch = useDispatch();
 
   const handleKeyPress = (e) => {
@@ -34,7 +35,7 @@ export default function SearchBar(props) {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      dispatch(setQueryInputError(null));
+      dispatch(setQueryInputError(""));
 
       await schema.validate(queryInput, {
         abortEarly: false,
@@ -70,30 +71,38 @@ export default function SearchBar(props) {
       {small ? (
         <div className="flex h-7">
           <input
+            disabled={loading}
             placeholder="Search lyrics &amp; more"
             type="search"
-            className={`border-white bg-lemon md:bg-white px-2 focus:outline-none text-base md:text-sm  ${
+            className={`disabled:bg-black disabled:bg-opacity-10 border-white bg-lemon md:bg-white px-2 focus:outline-none text-base md:text-sm  ${
               customStyle ? customStyle : ""
             }`}
             value={queryInput.value}
             onChange={handleOnChange}
             onKeyPress={handleKeyPress}
           />
-          <button className="bg-lemon md:bg-white w-10 text-black flex justify-center items-center text-xl">
+          <button
+            disabled={loading}
+            className="disabled:bg-black disabled:bg-opacity-10 bg-lemon md:bg-white w-10 text-black flex justify-center items-center text-xl"
+          >
             <IoSearchSharp />
           </button>
         </div>
       ) : (
         <div className="flex h-14 md:h-16 mt-6">
           <input
+            disabled={loading}
             placeholder="Search lyrics &amp; more"
             type="search"
-            className="border-white bg-white border-4 py-2 px-4 focus:outline-none text-base w-full"
+            className="disabled:bg-opacity-60 disabled:border-0 border-white bg-white border-4 py-2 px-4 focus:outline-none text-base w-full"
             value={queryInput.value}
             onChange={handleOnChange}
             onKeyPress={handleKeyPress}
           />
-          <button className="bg-white w-16 text-black flex justify-center items-center text-xl md:text-2xl">
+          <button
+            disabled={loading}
+            className="disabled:bg-opacity-60 bg-white w-16 text-black flex justify-center items-center text-xl md:text-2xl"
+          >
             <IoSearchSharp />
           </button>
         </div>
