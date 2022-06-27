@@ -34,6 +34,8 @@ export default function SearchBar(props) {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
+      dispatch(setQueryInputError(null));
+
       await schema.validate(queryInput, {
         abortEarly: false,
       });
