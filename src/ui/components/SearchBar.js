@@ -69,7 +69,7 @@ export default function SearchBar(props) {
       className={`relative ${customStyle ? customStyle : ""}`}
     >
       {small ? (
-        <div className="flex h-7">
+        <div className="flex h-7 border border-black border-opacity-5">
           <input
             disabled={loading}
             placeholder="Search lyrics &amp; more"
