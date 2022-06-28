@@ -1,4 +1,4 @@
-import { RouterView } from "../lib/redux-saga-router";
+import { RouterView } from "../../lib/redux-saga-router";
 
 function SearchLayout() {
   return (

@@ -1,12 +1,12 @@
 import { Router, RouterView } from "./lib/redux-saga-router";
 import routes from "./routes";
-import MainLayout from "./ui/MainLayout";
-import './assets/style.css';
+import "./assets/style.css";
+import HomeLayout from "./ui/layouts/HomeLayout";
 
 function App() {
   return (
     <Router routes={routes}>
-      <RouterView name="layout" defaultComponent={MainLayout} />
+      <RouterView name="layout" defaultComponent={HomeLayout} />
     </Router>
   );
 }

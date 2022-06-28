@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as L from "../../locationTemplates";
 import NotFound from "./components/NotFound";
-import SearchLayout from "../../ui/SearchLayout";
+import SearchLayout from "../../ui/layouts/SearchLayout";
 
 export default [
   {
