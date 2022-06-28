@@ -48,6 +48,7 @@ export default function Header() {
               type="button"
               className="text-2xl ml-4"
               onClick={handleMenuClick}
+              aria-label="Open menu"
             >
               {showSocialLinks ? <IoClose /> : <IoMenuOutline />}
             </button>

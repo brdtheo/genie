@@ -16,22 +16,34 @@ export default function SocialLinks(props) {
       }`}
     >
       <li>
-        <a href="https://www.instagram.com/genius/">
+        <a
+          href="https://www.instagram.com/genius/"
+          aria-label="Visit Genius Instagram account"
+        >
           <IoLogoInstagram />
         </a>
       </li>
       <li>
-        <a href="https://www.youtube.com/genius">
+        <a
+          href="https://www.youtube.com/genius"
+          aria-label="Visit Genius Youtube channel"
+        >
           <IoLogoYoutube />
         </a>
       </li>
       <li>
-        <a href="https://www.facebook.com/Genius/">
+        <a
+          href="https://www.facebook.com/Genius/"
+          aria-label="Visit Genius Facebook account"
+        >
           <IoLogoFacebook />
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/Genius">
+        <a
+          href="https://twitter.com/Genius"
+          aria-label="Visit Genius Twitter account"
+        >
           <IoLogoTwitter />
         </a>
       </li>
