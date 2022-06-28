@@ -14,6 +14,7 @@ import * as L from "../../../locationTemplates";
 import SearchBar from "../../../ui/components/SearchBar";
 import Container from "../../../ui/components/Container";
 import Footer from "../../../ui/components/Footer";
+import SocialLinks from "../../../ui/components/SocialLinks";
 
 export default function Header() {
   const [showSocialLinks, toggleSocialLinks] = useState(false);
@@ -33,28 +34,7 @@ export default function Header() {
         )}
 
         {isDesktopOrLaptop && (
-          <ul className="flex justify-center items-center flex-1 text-lg gap-6 text-black">
-            <li>
-              <a href="https://www.instagram.com/genius/">
-                <IoLogoInstagram />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/genius">
-                <IoLogoYoutube />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/Genius/">
-                <IoLogoFacebook />
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/Genius">
-                <IoLogoTwitter />
-              </a>
-            </li>
-          </ul>
+          <SocialLinks customStyle="text-lg gap-6 text-black" />
         )}
 
         {isDesktopOrLaptop ? (
