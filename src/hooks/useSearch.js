@@ -4,7 +4,7 @@ import * as yup from "yup";
 
 import { getSearchRequestURL } from "../api/helpers";
 import { navigate } from "../lib/redux-saga-router";
-import { setLoading, setQueryResult } from "../modules/home/homeActions";
+import { setLoading, setSearchResponse } from "../modules/home/homeActions";
 import { setQueryInputError } from "../modules/search/searchActions";
 import * as L from "../locationTemplates";
 
@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 });
 
 const useSearch = () => {
-  const queryInput = useSelector((state) => state.homeReducer.queryInput);
+  const queryInput = useSelector((state) => state.search.input);
   const dispatch = useDispatch();
 
   const triggerSearch = async (e) => {
@@ -41,7 +41,7 @@ const useSearch = () => {
           "PUSH"
         )
       );
-      dispatch(setQueryResult(data.response.hits));
+      dispatch(setSearchResponse(data.response.hits));
       dispatch(setLoading(false));
     } catch (err) {
       dispatch(setQueryInputError(err.message));

@@ -1,7 +1,7 @@
 export const initialHomeState = {
   loading: false,
-  queryResult: null,
-  queryInput: {
+  response: null,
+  input: {
     value: "",
     error: "",
   },
@@ -14,24 +14,24 @@ const homeReducer = (previousState = initialHomeState, action) => {
         ...previousState,
         loading: action.payload,
       };
-    case "SET_QUERY_RESULT":
+    case "SET_SEARCH_RESPONSE":
       return {
         ...previousState,
-        queryResult: action.payload,
+        response: action.payload,
       };
-    case "SET_QUERY_INPUT_VALUE":
+    case "SET_SEARCH_INPUT_VALUE":
       return {
         ...previousState,
-        queryInput: {
+        input: {
           value: action.payload,
           error: "",
         },
       };
-    case "SET_QUERY_INPUT_ERROR":
+    case "SET_SEARCH_INPUT_ERROR":
       return {
         ...previousState,
-        queryInput: {
-          value: previousState.queryInput.value,
+        input: {
+          value: previousState.input.value,
           error: action.payload,
         },
       };

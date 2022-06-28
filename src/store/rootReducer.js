@@ -6,7 +6,7 @@ import homeReducer from "../modules/home/homeReducer";
 
 const rootReducer = combineReducers({
   router: createRouterReducer(defaultLocation),
-  homeReducer,
+  search: homeReducer,
 });
 
 export default rootReducer;
