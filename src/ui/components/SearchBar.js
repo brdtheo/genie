@@ -43,19 +43,23 @@ export default function SearchBar(props) {
           value={queryInput.value}
           onChange={handleOnChange}
           onKeyPress={handleKeyPress}
+          aria-label="Search text field"
+          name="search-input"
+          id="search-input"
         />
         <button
           disabled={loading}
           className={`text-black flex justify-center items-center ${
             customButtonStyle ? customButtonStyle : ""
           }`}
+          aria-label="Search"
         >
           <IoSearchSharp />
         </button>
       </div>
       {queryInput.error && (
         <div className="bg-lemon px-4 py-1 text-xs md:text-sm absolute left-0 w-full">
-          <span>{queryInput.error}</span>
+          <label htmlFor="search-input">{queryInput.error}</label>
         </div>
       )}
     </form>
