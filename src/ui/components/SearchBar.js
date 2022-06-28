@@ -6,7 +6,12 @@ import { setQueryInputValue } from "../../modules/search/searchActions";
 import useSearch from "../../hooks/useSearch";
 
 export default function SearchBar(props) {
-  const { small, customStyle } = props;
+  const {
+    customFormStyle,
+    customContainerStyle,
+    customInputStyle,
+    customButtonStyle,
+  } = props;
   const queryInput = useSelector((state) => state.homeReducer.queryInput);
   const loading = useSelector((state) => state.homeReducer.loading);
   const dispatch = useDispatch();
@@ -23,47 +28,31 @@ export default function SearchBar(props) {
   return (
     <form
       onSubmit={handleSubmitForm}
-      className={`relative ${customStyle ? customStyle : ""}`}
+      className={`relative ${customFormStyle ? customFormStyle : ""}`}
     >
-      {small ? (
-        <div className="flex h-7 md:border md:border-black md:border-opacity-5">
-          <input
-            disabled={loading}
-            placeholder="Search lyrics &amp; more"
-            type="search"
-            className={`disabled:bg-black disabled:bg-opacity-10 border-white bg-lemon md:bg-white px-2 focus:outline-none text-base md:text-sm  ${
-              customStyle ? customStyle : ""
-            }`}
-            value={queryInput.value}
-            onChange={handleOnChange}
-            onKeyPress={handleKeyPress}
-          />
-          <button
-            disabled={loading}
-            className="disabled:bg-black disabled:bg-opacity-10 bg-lemon md:bg-white w-10 text-black flex justify-center items-center text-xl"
-          >
-            <IoSearchSharp />
-          </button>
-        </div>
-      ) : (
-        <div className="flex h-14 md:h-16 mt-6">
-          <input
-            disabled={loading}
-            placeholder="Search lyrics &amp; more"
-            type="search"
-            className="disabled:bg-opacity-60 disabled:border-0 border-white bg-white border-4 py-2 px-4 focus:outline-none text-base w-full"
-            value={queryInput.value}
-            onChange={handleOnChange}
-            onKeyPress={handleKeyPress}
-          />
-          <button
-            disabled={loading}
-            className="disabled:bg-opacity-60 bg-white w-16 text-black flex justify-center items-center text-xl md:text-2xl"
-          >
-            <IoSearchSharp />
-          </button>
-        </div>
-      )}
+      <div
+        className={`flex ${customContainerStyle ? customContainerStyle : ""}`}
+      >
+        <input
+          disabled={loading}
+          placeholder="Search lyrics &amp; more"
+          type="search"
+          className={`border-white focus:outline-none text-base ${
+            customInputStyle ? customInputStyle : ""
+          }`}
+          value={queryInput.value}
+          onChange={handleOnChange}
+          onKeyPress={handleKeyPress}
+        />
+        <button
+          disabled={loading}
+          className={`text-black flex justify-center items-center ${
+            customButtonStyle ? customButtonStyle : ""
+          }`}
+        >
+          <IoSearchSharp />
+        </button>
+      </div>
       {queryInput.error && (
         <div className="bg-lemon px-4 py-1 text-xs md:text-sm absolute left-0 w-full">
           <span>{queryInput.error}</span>

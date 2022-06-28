@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  IoClose,
-  IoLogoFacebook,
-  IoLogoInstagram,
-  IoLogoTwitter,
-  IoLogoYoutube,
-  IoMenuOutline,
-} from "react-icons/io5";
+import { IoClose, IoMenuOutline } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
 
 import { RouterLink } from "../../../lib/redux-saga-router";
@@ -38,10 +31,19 @@ export default function Header() {
         )}
 
         {isDesktopOrLaptop ? (
-          <SearchBar small />
+          <SearchBar
+            customContainerStyle="h-7 md:border md:border-black md:border-opacity-5"
+            customInputStyle="disabled:bg-black disabled:bg-opacity-10 md:bg-white px-2 md:text-sm bg-lemon"
+            customButtonStyle="disabled:bg-black disabled:bg-opacity-10 bg-lemon md:bg-white w-10 text-xl"
+          />
         ) : (
           <div className="flex w-full">
-            <SearchBar small customStyle="w-full" />
+            <SearchBar
+              customFormStyle="w-full"
+              customContainerStyle="w-full h-7 md:border md:border-black md:border-opacity-5"
+              customInputStyle="w-full disabled:bg-black disabled:bg-opacity-10 md:bg-white px-2 md:text-sm bg-lemon"
+              customButtonStyle="disabled:bg-black disabled:bg-opacity-10 bg-lemon md:bg-white w-10 text-xl"
+            />
             <button
               type="button"
               className="text-2xl ml-4"
