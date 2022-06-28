@@ -16,7 +16,7 @@ export default function Header() {
   const handleMenuClick = () => toggleSocialLinks(!showSocialLinks);
 
   return (
-    <header className="h-10 bg-lemon fixed w-full">
+    <header className="h-10 bg-lemon fixed w-full" data-testid="header">
       <Container customStyle="flex justify-between items-center h-10">
         {isDesktopOrLaptop && (
           <RouterLink to={L.Home.home()}>

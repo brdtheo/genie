@@ -5,7 +5,10 @@ export default function Container(props) {
   const customClasses = customStyle ? customStyle : "";
 
   return (
-    <div className={`w-full px-4 lg:px-0 lg:w-[56rem] m-auto ${customClasses}`}>
+    <div
+      className={`w-full px-4 lg:px-0 lg:w-[56rem] m-auto ${customClasses}`}
+      data-testid="container"
+    >
       {props.children}
     </div>
   );

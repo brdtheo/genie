@@ -12,8 +12,8 @@ export default function SearchBar(props) {
     customInputStyle,
     customButtonStyle,
   } = props;
-  const queryInput = useSelector((state) => state.homeReducer.queryInput);
-  const loading = useSelector((state) => state.homeReducer.loading);
+  const queryInput = useSelector((state) => state.search.input);
+  const loading = useSelector((state) => state.search.loading);
   const dispatch = useDispatch();
   const triggerSearch = useSearch();
 
@@ -29,9 +29,11 @@ export default function SearchBar(props) {
     <form
       onSubmit={handleSubmitForm}
       className={`relative ${customFormStyle ? customFormStyle : ""}`}
+      data-testid="search-bar-form"
     >
       <div
         className={`flex ${customContainerStyle ? customContainerStyle : ""}`}
+        data-testid="search-bar-input-container"
       >
         <input
           disabled={loading}
@@ -46,6 +48,7 @@ export default function SearchBar(props) {
           aria-label="Search text field"
           name="search-input"
           id="search-input"
+          data-testid="search-bar-input"
         />
         <button
           disabled={loading}
@@ -53,12 +56,16 @@ export default function SearchBar(props) {
             customButtonStyle ? customButtonStyle : ""
           }`}
           aria-label="Search"
+          data-testid="search-bar-button"
         >
           <IoSearchSharp />
         </button>
       </div>
       {queryInput.error && (
-        <div className="bg-lemon px-4 py-1 text-xs md:text-sm absolute left-0 w-full">
+        <div
+          className="bg-lemon px-4 py-1 text-xs md:text-sm absolute left-0 w-full"
+          data-testid="search-bar-error"
+        >
           <label htmlFor="search-input">{queryInput.error}</label>
         </div>
       )}

@@ -5,10 +5,10 @@ import { RouterView } from "../../lib/redux-saga-router";
 import LoadingBar from "../../modules/home/components/LoadingBar";
 
 function HomeLayout() {
-  const loading = useSelector((state) => state.homeReducer.loading);
+  const loading = useSelector((state) => state.search.loading);
 
   return (
-    <>
+    <div data-testid="home-layout">
       {loading && <LoadingBar />}
 
       <div className="flex flex-col min-safe-h-screen">
@@ -18,7 +18,7 @@ function HomeLayout() {
 
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 

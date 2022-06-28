@@ -2,9 +2,12 @@ import React from "react";
 
 import SearchBar from "../../../ui/components/SearchBar";
 
-function Homepage() {
+function HomePage() {
   return (
-    <div className="flex flex-col w-full md:w-96 px-4 md:px-0">
+    <div
+      className="flex flex-col w-full md:w-96 px-4 md:px-0"
+      data-testid="home-page"
+    >
       <h1 className="text-4xl md:text-5xl font-bold leading-none mb-2 text-white">
         Genie
       </h1>
@@ -21,4 +24,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomePage;

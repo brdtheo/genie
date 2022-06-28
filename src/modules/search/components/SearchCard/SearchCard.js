@@ -7,7 +7,7 @@ import { parseViews } from "../../../../api/helpers";
 import SearchCardLoading from "./SearchCardLoading";
 
 export default function SearchCard(props) {
-  const loading = useSelector((state) => state.homeReducer.loading);
+  const loading = useSelector((state) => state.search.loading);
   const { item, type, artistName, artistImage, artistIsVerified } = props;
   const isTypeSong = type === "song";
 
@@ -26,7 +26,10 @@ export default function SearchCard(props) {
       {loading ? (
         <SearchCardLoading />
       ) : (
-        <article className="text-white w-full h-20 flex bg-white bg-opacity-5 hover:bg-opacity-10 transition-colors">
+        <article
+          className="text-white w-full h-20 flex bg-white bg-opacity-5 hover:bg-opacity-10 transition-colors"
+          data-testid="search-card"
+        >
           <figure className="w-20 h-20 overflow-hidden">
             <img
               src={getImage()}

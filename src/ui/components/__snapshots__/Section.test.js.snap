@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section component should render child element 1`] = `
+<section
+  className="pb-8 sm:pb-16 w-full"
+>
+  <h2
+    className="text-white text-xl font-semibold leading-none"
+  />
+  <p>
+    test
+  </p>
+</section>
+`;
+
+exports[`Section component should render when having props passed 1`] = `
+<section
+  className="bg-lemon w-full"
+>
+  <h2
+    className="text-white text-xl font-semibold leading-none"
+  >
+    Songs
+  </h2>
+</section>
+`;
+
+exports[`Section component should render without throwing an error 1`] = `
+<section
+  className="pb-8 sm:pb-16 w-full"
+>
+  <h2
+    className="text-white text-xl font-semibold leading-none"
+  />
+</section>
+`;

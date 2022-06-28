@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function LoadingBar() {
-  const loading = useSelector((state) => state.homeReducer.loading);
+  const loading = useSelector((state) => state.search.loading);
   const [loadingCount, setLoadingCount] = useState(0);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const triggerProgress = () => {
     for (let i = 0; i < 100; i += 0.1) {
       setLoadingCount(i);
@@ -14,11 +13,11 @@ export default function LoadingBar() {
 
   useEffect(() => {
     triggerProgress();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div
+      data-testid="loading-bar"
       role="progressbar"
       aria-valuemin={0}
       aria-valuenow={loadingCount}
