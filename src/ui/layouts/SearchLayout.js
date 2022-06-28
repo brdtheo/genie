@@ -3,11 +3,13 @@ import Header from "../../modules/search/components/Header";
 
 function SearchLayout() {
   return (
-    <main className="bg-black min-h-screen">
+    <>
       <Header />
 
-      <RouterView name="main" />
-    </main>
+      <main className="bg-black min-h-screen">
+        <RouterView name="main" />
+      </main>
+    </>
   );
 }
 

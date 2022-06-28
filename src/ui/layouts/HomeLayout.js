@@ -8,15 +8,17 @@ function HomeLayout() {
   const loading = useSelector((state) => state.homeReducer.loading);
 
   return (
-    <div className="flex flex-col min-safe-h-screen">
-      <main className="bg-black flex flex-grow justify-center items-center">
-        {loading && <LoadingBar />}
+    <>
+      {loading && <LoadingBar />}
 
-        <RouterView name="main" />
-      </main>
+      <div className="flex flex-col min-safe-h-screen">
+        <main className="bg-black flex flex-grow justify-center items-center">
+          <RouterView name="main" />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
