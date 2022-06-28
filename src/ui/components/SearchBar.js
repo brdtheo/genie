@@ -1,65 +1,22 @@
-import axios from "axios";
 import React from "react";
-import { IoSearchSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import * as yup from "yup";
+import { IoSearchSharp } from "react-icons/io5";
 
-import { getSearchRequestURL } from "../../api/helpers";
-import { navigate } from "../../lib/redux-saga-router";
-import { setLoading, setQueryResult } from "../../modules/home/homeActions";
-import {
-  setQueryInputError,
-  setQueryInputValue,
-} from "../../modules/search/searchActions";
-import * as L from "../../locationTemplates";
-
-const schema = yup.object().shape({
-  value: yup.string().required("Please enter an artist/song name"),
-  error: yup.string(),
-});
+import { setQueryInputValue } from "../../modules/search/searchActions";
+import useSearch from "../../hooks/useSearch";
 
 export default function SearchBar(props) {
   const { small, customStyle } = props;
   const queryInput = useSelector((state) => state.homeReducer.queryInput);
   const loading = useSelector((state) => state.homeReducer.loading);
   const dispatch = useDispatch();
+  const triggerSearch = useSearch();
 
+  const handleOnChange = (e) => dispatch(setQueryInputValue(e.target.value));
+  const handleSubmitForm = (e) => triggerSearch(e);
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSubmitForm(e);
-    }
-  };
-
-  const handleOnChange = (e) => dispatch(setQueryInputValue(e.target.value));
-
-  const handleSubmitForm = async (e) => {
-    e.preventDefault();
-    try {
-      dispatch(setQueryInputError(""));
-
-      await schema.validate(queryInput, {
-        abortEarly: false,
-      });
-
-      dispatch(setLoading(true));
-
-      const { data } = await axios({
-        method: "get",
-        url: getSearchRequestURL(queryInput.value),
-      });
-
-      dispatch(
-        navigate(
-          L.Search.search({
-            query: encodeURIComponent(queryInput.value.trim()),
-          }),
-          "PUSH"
-        )
-      );
-      dispatch(setQueryResult(data.response.hits));
-      dispatch(setLoading(false));
-    } catch (err) {
-      dispatch(setQueryInputError(err.message));
     }
   };
 
@@ -69,7 +26,7 @@ export default function SearchBar(props) {
       className={`relative ${customStyle ? customStyle : ""}`}
     >
       {small ? (
-        <div className="flex h-7 border border-black border-opacity-5">
+        <div className="flex h-7 md:border md:border-black md:border-opacity-5">
           <input
             disabled={loading}
             placeholder="Search lyrics &amp; more"
