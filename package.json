@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -25,8 +26,8 @@
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"yarn watch:css\"",
-    "build": "yarn build:css && react-scripts build",
-    "test": "react-scripts test",
+    "build": "yarn jest && yarn build:css && react-scripts build",
+    "test": "yarn jest",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/style.css",
     "watch:css": "postcss src/assets/tailwind.css -o src/assets/style.css --watch"
@@ -50,9 +51,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
     "autoprefixer": "^10.4.7",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "^3.0.24"
   }
 }
