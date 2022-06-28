@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import * as L from "../../locationTemplates";
 import HomePage from "./components/HomePage";
-import HomeLayout from "../../ui/HomeLayout";
+import HomeLayout from "../../ui/layouts/HomeLayout";
 
 export default [
   {
