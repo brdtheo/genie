@@ -9,11 +9,11 @@ import {
 } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
 
-import { RouterLink } from "../../lib/redux-saga-router";
-import * as L from "../../locationTemplates";
-import SearchBar from "./SearchBar";
-import Container from "./Container";
-import Footer from "./Footer";
+import { RouterLink } from "../../../lib/redux-saga-router";
+import * as L from "../../../locationTemplates";
+import SearchBar from "../../../ui/components/SearchBar";
+import Container from "../../../ui/components/Container";
+import Footer from "../../../ui/components/Footer";
 
 export default function Header() {
   const [showSocialLinks, toggleSocialLinks] = useState(false);
