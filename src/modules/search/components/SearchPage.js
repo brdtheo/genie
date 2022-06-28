@@ -2,7 +2,7 @@ import React from "react";
 
 import Section from "../../../ui/components/Section";
 import Header from "../../../ui/components/Header";
-import SearchCardList from "../../../ui/components/SearchCardList";
+import SearchCardList from "./SearchCard/SearchCardList";
 import Container from "../../../ui/components/Container";
 
 function SearchPage() {

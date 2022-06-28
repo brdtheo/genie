@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { parseArtists } from "../../api/helpers";
 
+import { parseArtists } from "../../../../api/helpers";
 import SearchCard from "./SearchCard";
 
 export default function SearchCardList(props) {
@@ -9,23 +9,23 @@ export default function SearchCardList(props) {
   const queryResult = useSelector((state) => state.homeReducer.queryResult);
 
   const { type } = props;
-  const isTypeArtist = type === "artist";
+  const isArtist = type === "artist";
 
   useEffect(() => {
-    if (isTypeArtist) {
+    if (isArtist) {
       const parsedArtists = parseArtists(queryResult);
       setArtists(parsedArtists);
     }
-  }, [queryResult, isTypeArtist]);
+  }, [queryResult, isArtist]);
 
   return (
     <div className="py-5 md:py-6 grid gap-3 md:gap-4">
-      {!isTypeArtist &&
+      {!isArtist &&
         queryResult.map((item) => (
           <SearchCard item={item} key={item.result.api_path} type={type} />
         ))}
 
-      {isTypeArtist &&
+      {isArtist &&
         artists &&
         artists.length > 0 &&
         artists.map((item) => (
