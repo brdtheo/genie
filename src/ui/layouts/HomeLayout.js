@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import Footer from "../components/Footer";
 import { RouterView } from "../../lib/redux-saga-router";
-import LoadingBar from "../components/LoadingBar";
+import LoadingBar from "../../modules/home/components/LoadingBar";
 
 function HomeLayout() {
   const loading = useSelector((state) => state.homeReducer.loading);
