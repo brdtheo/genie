@@ -6,7 +6,7 @@ import SearchCard from "./SearchCard";
 
 export default function SearchCardList(props) {
   const [artists, setArtists] = useState(null);
-  const queryResult = useSelector((state) => state.homeReducer.queryResult);
+  const queryResult = useSelector((state) => state.search.response);
 
   const { type } = props;
   const isArtist = type === "artist";
@@ -19,7 +19,10 @@ export default function SearchCardList(props) {
   }, [queryResult, isArtist]);
 
   return (
-    <div className="py-5 md:py-6 grid gap-3 md:gap-4">
+    <div
+      className="py-5 md:py-6 grid gap-3 md:gap-4"
+      data-testid="search-card-list"
+    >
       {!isArtist &&
         queryResult.map((item) => (
           <SearchCard item={item} key={item.result.api_path} type={type} />

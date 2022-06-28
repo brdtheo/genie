@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage component should render without throwing an error 1`] = `
+<div
+  className="w-full px-4 lg:px-0 lg:w-[56rem] m-auto "
+  data-testid="container"
+>
+  <section
+    className="pt-20 md:pt-28 pb-8 sm:pb-16 w-full"
+  >
+    <h2
+      className="text-white text-xl font-semibold leading-none"
+    >
+      Not found
+    </h2>
+    <p
+      className="text-white text-sm mt-4"
+      data-testid="not-found-message"
+    >
+      The page you requested does not exist
+    </p>
+  </section>
+</div>
+`;

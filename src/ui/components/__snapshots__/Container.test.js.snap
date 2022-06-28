@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component should render child element 1`] = `
+<div
+  className="w-full px-4 lg:px-0 lg:w-[56rem] m-auto "
+  data-testid="container"
+>
+  <p>
+    test
+  </p>
+</div>
+`;
+
+exports[`Container component should render when having props passed 1`] = `
+<div
+  className="w-full px-4 lg:px-0 lg:w-[56rem] m-auto bg-lemon"
+  data-testid="container"
+/>
+`;
+
+exports[`Container component should render without throwing an error 1`] = `
+<div
+  className="w-full px-4 lg:px-0 lg:w-[56rem] m-auto "
+  data-testid="container"
+/>
+`;
