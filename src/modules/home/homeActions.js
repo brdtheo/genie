@@ -5,9 +5,9 @@ export const setLoading = (value) => {
   };
 };
 
-export const setQueryResult = (value) => {
+export const setSearchResponse = (value) => {
   return {
-    type: "SET_QUERY_RESULT",
+    type: "SET_SEARCH_RESPONSE",
     payload: value,
   };
 };
